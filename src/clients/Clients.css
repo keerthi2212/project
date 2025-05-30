@@ -1,0 +1,99 @@
+main.sidebar-open .Client-or{
+    width: 100%;
+}
+.Clinets-html{
+    width: 100%;
+    margin: auto;
+  }
+  .Client-or{
+    width: 90%;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+  }
+  .Client-Rt{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px; 
+    justify-content: center;
+    margin-top: 2%;
+  }
+  .Clients-k{
+    border: 1px solid #000;
+    padding: 20px 25px; 
+    border-radius: 10px;
+  }
+  div.clients-img{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  h1.Mother-da{
+    font-size: 25px;
+    font-weight: 700;
+  }
+  p.Warangal{
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  .Branch{
+    font-size: 14px;
+   margin-bottom: 5px;
+   margin-left: 5px;
+  }
+  .decrease{
+    font-size: 15px;
+    color: green;
+    font-weight: 800;
+    font-family: sans-serif;
+    margin-left: 5px;
+  }
+  .-brown{
+    color: brown;
+  }
+  .-red{
+    color: #dc3545;
+  }
+  
+  .supplier img,
+  .product img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  div.img-i{
+    width: 200px;  
+    height: 150px; 
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    }
+    img.img-client{
+    width: 100%; 
+    height: 100%; 
+    /* object-fit: cover;   */
+    background-size: cover;
+    mix-blend-mode: multiply;
+    }
+    div.Widht_plo{
+      width: 100%;
+      margin: auto;
+    }
+    div.poli-wif{
+      margin-top: 10%;
+      width: 100%;
+      margin: auto;
+      background-color: rgb(151,179,174);
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    h1.name_ty{
+      color: #fff;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 25px;
+    }

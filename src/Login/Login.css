@@ -1,0 +1,317 @@
+div.login-wrapper{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #eef2f5;
+    padding: 20px;
+    background-image: url(Signupbackground.jpg);
+  }
+  
+  .login-container {
+      display: flex;
+      /* background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(2px); */
+      justify-content: center;
+      border-radius: 12px;
+      /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); */
+      overflow: hidden;
+      width: 900px;
+      max-width: 90%;
+      align-items: stretch;
+      transition: transform 0.3s;
+      margin-top: 5.5%;
+  }
+  .img-a{
+    width: 400px;
+  }
+  .login-box {
+      display: flex;
+      justify-content: center;
+      width: 60%;
+      padding: 10px 50px;
+      padding-top: 15px;
+      padding-bottom: 30px;
+      padding-right: 70px;
+      text-align: left;
+      /* background: rgba(255, 255, 255, 0.2); 
+      backdrop-filter: blur(5px); */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 5px;
+  }
+  
+  h2 {
+      color: #685BB7;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 700;
+  }
+  
+  .form-group {
+      margin-bottom: 18px;
+  }
+  
+  label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #000;
+      margin-left: 10px;
+  }
+  
+  input[type=email]{
+      width: 100%;
+      padding: 12px ;
+      border: 3px solid #ccc !important;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: all 0.3s;
+      outline: none;
+  
+  }
+  
+  input[type=password]{
+      width: 100%;
+      padding: 12px ;
+      border: 3px solid #ccc !important;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: all 0.3s;
+      outline: none;
+  
+  }
+  input:is(:focus) {
+      border: 3px solid #007bff !important;
+      outline: none;
+      box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+  }
+  input[type='email']:hover , input[type='password']:hover{
+      border: 3px solid #007bff !important;  
+  }
+  
+  input:invalid {
+      border-color: black;
+  }
+  
+  .options {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 15px;
+  }
+  
+  .options a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+  }
+  
+  .options a:hover {
+      text-decoration: underline;
+  }
+  
+  .btn {
+      width: 107%;
+      padding: 14px;
+      background: linear-gradient(to right, #8CAAE7, #685BB7);
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s;
+      font-weight: 600;
+  }
+  
+  .btn:hover {
+      background: linear-gradient(to right, #8CAAE7, #685BB7);
+  }
+  
+  .signup-link {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+  }
+  
+  .signup-link a {
+      color: #685BB7;
+      text-decoration: none;
+      font-weight: 600;
+  }
+  
+  .signup-link a:hover {
+      text-decoration: underline;
+  }
+  
+  .frog{
+      display: flex;
+      justify-content: flex-end;
+      text-decoration: none;
+      font-size: 16px;
+      color: #685BB7;
+      font-weight: 700;
+  }
+  .frog:hover{
+      color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+      .login-container {
+          flex-direction: column;
+          width: 100%;
+      }
+  
+      .login-box, .image-box {
+          width: 100%;
+      }
+  }
+  .cube-d{
+      position: absolute;
+      margin-top: -340px;
+      z-index: 1;
+      margin-left: -550px;
+  }
+  
+  .run-ku {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 800px; 
+    }
+    
+    .cube {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      transform-style: preserve-3d; 
+      transform: rotateY(30deg) rotateX(60deg); 
+    }
+    
+    .face {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: linear-gradient(
+        70deg,
+        rgba(193, 52, 146, 0.1),
+        rgba(106, 144, 193, 0.1)
+      );
+      backdrop-filter: blur(5px); 
+      border: 1px solid rgba(106, 144, 193 ,0.7);
+    }
+    
+    .front {
+      transform: translateZ(25px); 
+    }
+    
+    .back {
+      transform: rotateY(180deg) translateZ(25px); 
+    }
+    
+    .left {
+      transform: rotateY(-90deg) translateZ(25px); 
+    }
+    
+    .right {
+      transform: rotateY(90deg) translateZ(25px); 
+    }
+    
+    .top {
+      transform: rotateX(90deg) translateZ(25px); 
+    }
+    
+    .bottom {
+      transform: rotateX(-90deg) translateZ(25px); 
+    }
+    .h-k{
+      position: absolute;
+      margin-left: 550px;
+      margin-top: 450px;
+    }
+    
+    .cube-d-c {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 800px; /* Add perspective to create the 3D effect */
+    }
+    
+    .run-ku-k {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .cube-k {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      transform-style: preserve-3d; /* Keep the 3D effect */
+      transform: rotateY(30deg) rotateX(30deg); /* Rotate the cube to show all faces */
+    }
+    
+    .face-k {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: linear-gradient(
+        70deg,
+        rgba(193, 52, 146, 0.1),
+        rgba(106, 144, 193, 0.1)
+      );
+      backdrop-filter: blur(5px); 
+      border: 1px solid rgba(106, 144, 193 ,0.7);
+    }
+    
+    .front-k {
+      transform: translateZ(25px); /* Position the front face */
+    }
+    
+    .back-k {
+      transform: rotateY(180deg) translateZ(25px); /* Position the back face */
+    }
+    
+    .left-k {
+      transform: rotateY(-90deg) translateZ(25px); /* Position the left face */
+    }
+    
+    .right-k {
+      transform: rotateY(90deg) translateZ(25px); /* Position the right face */
+    }
+    
+    .top-k {
+      transform: rotateX(90deg) translateZ(25px); /* Position the top face */
+    }
+    
+    .bottom-k {
+      transform: rotateX(-90deg) translateZ(25px); /* Position the bottom face */
+    }
+    
+    div.cricle{
+      margin-left: 590px;
+      margin-top: -100px;
+      z-index: 1;
+      position: absolute;
+    }
+  
+  div.cricle-er{
+      margin-left: -570px;
+      margin-top: 100px;
+      z-index: 1;
+      position: absolute;
+  }
+  
+  div.cricle-w{
+    width: 100px;            
+    height: 100px;           
+    border-radius: 50%;      
+    background-color: rgba(193, 52, 146, 0.3);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    display: inline-block; 
+  }

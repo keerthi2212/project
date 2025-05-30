@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milk Diary Dashboard</title>
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    .supplier img,
+    .product img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    aside.active{
+      display: block;
+      transform: translateX(0);
+      flex-grow: 1;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    aside{
+      display: none;
+      min-width: 250px;
+    }
+
+    .aside-class ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .aside-class ul li {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .aside-class ul li:hover {
+      background-color: rgba(28, 3, 104, 0.2);
+      color: black;
+    }
+
+    /* Add container styles to match products page */
+    .flextag {
+        width: 100%;
+        margin: auto;
+        transition: all 0.3s ease;
+        padding: 0 10px;
+    }
+
+    .aside-class.active + main .flextag {
+        width: calc(100% - 280px);
+        margin-left: 280px;
+    }
+
+    .aside-class.active + main .Flexsel {
+        width: 100%;
+    }
+  </style></head>
+<body>
+    <header>
+        <div class="logo">
+          <img src="ATS Wallpaper.jpeg" height="100" width="300" alt="Company Logo" />
+          <div class="search-bar">
+            <input type="search" placeholder="Search dairy products..." />
+            <i id="serch" class="fa fa-search"></i>
+          </div>
+    
+        </div>
+        
+        <!-- <div class="company-name"> <span class="blue" >Astrolite</span>  <span class="red" >Tech</span> <span class="black" >Solutions</span> </div> -->
+        <div class="profile">
+          <div class="notification-container">
+            <div class="notification-icon" id="notification-btn">
+              <!-- <img src="https://cdn-icons-png.flaticon.com/512/1827/1827314.png" alt="Notification Bell" /> -->
+              <i id="fa_bell" class="fa fa-bell" aria-hidden="true"></i>
+              <span class="notification-dot" id="notification-dot"></span>
+            </div>
+            <div class="notification-dropdown" id="notification-dropdown">
+              <h4>Notifications</h4>
+              <ul>
+                <li>
+                  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="Order Icon" />
+                  <div>
+                    <strong>New order received</strong>
+                    <p>Your dairy order has been confirmed</p>
+                    <span>24 min ago</span>
+                  </div>
+                </li>
+                <li>
+                  <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Message Icon" />
+                  <div>
+                    <strong>New inquiry</strong>
+                    <p>Customer question about product details</p>
+                    <span>1 hr ago</span>
+                  </div>
+                </li>
+                <li>
+                  <img src="https://cdn-icons-png.flaticon.com/512/1150/1150645.png" alt="Review Icon" />
+                  <div>
+                    <strong>New review posted</strong>
+                    <p>See the latest customer feedback</p>
+                    <span>4 days ago</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+         
+         <img class="img_wh" src="WhatsApp Image 2025-02-19 at 18.00.09.jpeg" alt="Profile Picture" />
+         <div class="span_U"> <span id="username"></span></div>
+          <div class="menu-toggle" id="menu-toggle">
+          <i class="fa fa-bars"></i>
+        </div>
+        </div>
+      </header>
+    
+      <!-- Content Wrapper -->
+      <div class="dashboard-container">
+          <div class="aside-class">
+              <ul>
+                  <li id="dashboard-link">Dashboard</li>
+                  <li id="products-link">Products</li>
+                  <li id="Orders-link">Orders</li>
+                  <li id="client-link">Clients</li>
+                  <li id="Sales-link">Sales</li>
+                  <li id="analysis-link">Product Analysis</li>
+                  <li id="Customer-Review">Customer Review</li>
+                  <li id="Employee-List">Employee List</li>
+                  <li id="Marketing">Marketing</li>
+                  <li id="back-to-login" class="logout">Logout</li>
+              </ul>
+          </div>
+            
+      <main class ='product-cart' >
+ 
+        <style>
+          
+            </style>
+            <div class="flextag">
+              <div class="Flexsel">
+                <div class="Widht_plo">
+                  <div class="poli-wif">
+                      <h1 class="name_ty">Sales</h1>
+                  </div>
+              </div>
+                <div class="selectg">
+                  <label class="Selecty">Select Year:</label>
+                  <select id="yearselect">
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                  </select>
+                </div>
+                <div class="flexsa">
+                  <div class="Pie">
+                    <p style="text-align: center; font-size: 20px; font-weight: 700; margin-top: 10px; font-family: sans-serif;">Products Data</p>
+                    <canvas id="Piegraph" style="width: 100%; max-width: 500px; height: 200px; max-height: 300px; margin-top: 20px;"></canvas>
+                  </div>
+                  <div class="Graphdot">
+                    <canvas id="monthsales" style="width: 90%; max-width: 400px; height: 500px; max-height: 300px; margin-top: 20px;"></canvas>
+                  </div>
+                  <div class="Graphdet">
+                    <canvas id="sales" style="width: 90%; max-width: 400px; height: 500px; max-height: 300px; margin-top: 20px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <script>
+              const salesData = { 
+                "2022": [1700, 1200, 1130, 1920, 1059, 1922],
+                "2023": [1400, 1600, 1500, 1000, 1000, 1530],
+                "2024": [1600, 1800, 1300, 1750, 1220, 1050],
+                "2025": [16, 18, 13, 15, 11, 13]
+              };
+            
+              const salepieData = { 
+                "2022": [52, 18, 22, 60, 55, 42],
+                "2023": [30, 40, 15, 28, 20, 35],
+                "2024": [15, 22, 68, 50, 62, 20],
+                "2025": [6, 3, 5, 9, 8, 2],
+              };
+            
+              const salesMonthlyData = {
+                "2021": [1335, 1549, 1404, 1705, 1680, 1890, 1600, 1800, 1550, 1700, 1800, 1900],
+                "2022": [1700, 1200, 1130, 1392, 1895, 1392, 1400, 1530, 1600, 1500, 1650, 1700],
+                "2023": [1400, 1600, 1500, 1800, 1400, 1530, 1700, 1800, 1600, 1800, 1750, 1600],
+                "2024": [1600, 1800, 1300, 1750, 1220, 1300, 1600, 1550, 1450, 1600, 1780, 1900],
+                "2025": [1650, 1700, null, null, null, null, null, null, null, null, null, null]
+              };
+            
+              const monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+              const colors = [
+                '#004D99', 
+                '#004D99', 
+                '#004D99', 
+                '#004D99', 
+                '#004D99', 
+                '#004D99'
+              ];
+            
+              const colorsPie = [
+                '#fc6e51', 
+                '#f7b7a3', 
+                '#ea5f89', 
+                '#a0d468', 
+                '#ac92ec',
+                '#ffce54'  
+              ];
+            
+              const ctx = document.getElementById('sales').getContext('2d');
+              let salesChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['Curd', 'Milk', 'Paneer', 'Buttermilk', 'yogurt', 'cheese'],
+                  datasets: [{
+                    label: 'Sales Data',
+                    data: salesData["2025"], 
+                    backgroundColor: colors
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  aspectRatio: 1.3,
+                  plugins: {
+                    legend: {
+                      position: 'bottom',
+                      labels: {
+                        font: {
+                          size: 18,
+                          family: 'Arial',
+                          weight: 'bold',
+                          style: 'italic'
+                        },
+                        color: '#000',
+                        padding: 20,
+                        boxWidth: 20
+                      }
+                    },
+                    tooltip: {
+                      callbacks: {
+                        title: function(tooltipItem) {
+                          return tooltipItem[0].label;
+                        },
+                        label: function(tooltipItem) {
+                          const value = tooltipItem.raw;
+                          return `Sales: ${value}`;
+                        }
+                      }
+                    }
+                  },
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      ticks: {
+                        padding: 15
+                      }
+                    },
+                    y: {
+                      ticks: {
+                        font: {
+                          size: 14,
+                          family: 'Arial',
+                          weight: 'bold',
+                          style: 'italic'
+                        }
+                      }
+                    }
+                  }
+                }
+              });
+            
+              const ctxs = document.getElementById('Piegraph').getContext('2d');
+              let salesPieChart = new Chart(ctxs, {
+                type: 'doughnut',
+                data: {
+                  labels: ['Curd', 'Milk', 'Paneer', 'Buttermilk', 'yogurt', 'cheese'],
+                  datasets: [{
+                    label: 'Sales',
+                    data: salepieData["2025"],  
+                    backgroundColor: colorsPie
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      position: 'bottom',
+                      labels: {
+                        font: {
+                          size: 18,
+                          family: 'Arial',
+                          weight: 'bold',
+                          style: 'italic'
+                        },
+                        color: '#000',
+                        padding: 20,
+                        boxWidth: 20
+                      }
+                    },
+                    tooltip: {
+                      callbacks: {
+                        title: function(tooltipItem) {
+                          return tooltipItem[0].label;
+                        },
+                        label: function(tooltipItem) {
+                          const value = tooltipItem.raw;
+                          return `Sales: ${value}`;
+                        }
+                      }
+                    },
+                    beforeDraw: function(chart) {
+                      const ctx = chart.chart.ctx;
+                      const width = chart.chart.width;
+                      const height = chart.chart.height;
+                      ctx.save();
+                      ctx.font = 'bold 20px Arial';
+                      ctx.textAlign = 'center';
+                      ctx.fillStyle = 'black';
+                      ctx.fillText('Sales by Product', width / 2, height + 20); 
+                      ctx.restore();
+                    }
+                  }
+                }
+              });
+            
+              const ctxMonthSales = document.getElementById('monthsales').getContext('2d');
+                let monthSalesChart = new Chart(ctxMonthSales, {
+                  type: 'line',
+                  data: {
+                    labels: monthLabels, // Using the correct month labels
+                    datasets: [{
+                      label: 'Monthly Sales (L/Kg)',
+                      // Filter out the null values from the sales data
+                      data: salesMonthlyData["2025"].map(x => x !== null ? x : undefined), // Replace null with undefined
+                      borderColor: 'transparent',
+                      backgroundColor: '#004D99',
+                      fill: false
+                    }]
+                  },
+                  options: {
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        position: 'top',
+                        labels: {
+                          font: {
+                            size: 18,
+                            family: 'Arial',
+                            weight: 'bold',
+                            style: 'italic'
+                          },
+                          color: '#000',
+                          padding: 20,
+                          boxWidth: 20
+                        }
+                      },
+                      tooltip: {
+                        callbacks: {
+                          title: function(tooltipItem) {
+                            return tooltipItem[0].label;
+                          },
+                          label: function(tooltipItem) {
+                            const value = tooltipItem.raw;
+                            return `Sales: ${value}`;
+                          }
+                        }
+                      }
+                    },
+                    scales: {
+                      x: {
+                        ticks: {
+                          font: {
+                            size: 14,
+                            family: 'Arial',
+                            weight: 'bold',
+                            style: 'italic'
+                          }
+                        }
+                      },
+                      y: {
+                        beginAtZero: true,
+                        ticks: {
+                          font: {
+                            size: 14,
+                            family: 'Arial',
+                            weight: 'bold',
+                            style: 'italic'
+                          }
+                        }
+                      }
+                    }
+                  }
+                });
+
+            
+              // Update chart when the year is changed
+              document.getElementById('yearselect').addEventListener('change', (event) => {
+                const selectedYear = event.target.value;
+            
+                // Update the line chart with new data based on the selected year
+                monthSalesChart.data.datasets[0].data = salesMonthlyData[selectedYear].map(x => x === null ? 0 : x);
+                monthSalesChart.update();
+                
+                salesChart.data.datasets[0].data = salesData[selectedYear];
+                salesChart.update();
+            
+                salesPieChart.data.datasets[0].data = salepieData[selectedYear];
+                salesPieChart.update();
+              });
+            </script>
+            
+            
+               
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('notification-btn').addEventListener('click', function () {
+        document.getElementById('notification-dropdown').classList.toggle('show');
+    });
+
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.querySelector('.aside-class').classList.toggle('active');
+    });
+
+    const loggedInUser = localStorage.getItem('username');
+    document.getElementById('username').textContent = `${loggedInUser}`;
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.href = "login.html";
+    };
+
+    const handleNavigateToPage = (page) => {
+        window.location.href = `${page}.html`;
+    };
+
+    document.getElementById('dashboard-link').addEventListener('click', () => handleNavigateToPage('company'));
+    document.getElementById('products-link').addEventListener('click', () => handleNavigateToPage('products'));
+    document.getElementById('Orders-link').addEventListener('click', () => handleNavigateToPage('order'));
+    document.getElementById('client-link').addEventListener('click', () => handleNavigateToPage('clients'));
+    document.getElementById('Sales-link').addEventListener('click', () => handleNavigateToPage('sales'));
+    document.getElementById('analysis-link').addEventListener('click', () => handleNavigateToPage('productanalysis'));
+    document.getElementById('Customer-Review').addEventListener('click', () => handleNavigateToPage('customerreview'));
+    document.getElementById('Employee-List').addEventListener('click', () => handleNavigateToPage('employeeList')); 
+    document.getElementById('Marketing').addEventListener('click', () => handleNavigateToPage('marketing'));
+
+    document.getElementById('back-to-login').addEventListener('click', handleLogout);
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+div.width-set{
+    width: 100%;
+    margin: auto;
+}
+div.style-iop{
+    width: 100%;
+    margin: auto;
+}
+.contai-sect1 {
+    /* background: #fff; */
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+}
+div.mark_uip{
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 30px;
+}
+.contai-sect2 {
+    width: 100%;
+    /* margin-bottom: 20px; */
+    padding: 15px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(151, 179, 174);
+    padding: 12px 24px;
+    transition: all 0.3s ease-in-out;
+}
+.contai-sect2:hover{
+    box-shadow: 0px 0px 10px rgb(151, 179, 174);
+    transform: scale(1.03);
+}
+div.ing_uie{
+    width: 100%;
+    margin: auto;
+    background-color: rgb(151, 179, 174);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 2%;
+}
+h2.inv_mana{
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+h3.pro_dis{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+p.create-mana{
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+button.graph_btn-uy  {
+    background: rgb(151, 179, 174);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+button.graph_btn-uy:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.modal-box {
+    display: none;
+    position: fixed;
+    z-index: 999999999999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content-box {
+    margin-top: 1%;
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.chart-box {
+    display: grid;
+    grid-template-columns: auto;
+}
+canvas {
+    max-width: 100%;
+    max-height: 400px;
+}
+div.img_flex{
+    display: flex;
+    gap: 10px;
+}
+img.text_imgty{
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+}
+div.flex_div_but{
+    display: flex;
+    justify-content: flex-end;
+}
+h3.char-ui{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+canvas#promotions-box-lineChart{
+    margin-bottom: 30px;
+}
+
+/* Add container styles to match products page
+.width-set {
+    width: 100%;
+    margin: auto;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+} */
